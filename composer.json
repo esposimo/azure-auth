@@ -1,0 +1,33 @@
+{
+  "name": "esposimo/azure-auth",
+  "description": "Simple azure auth with client id / client secret",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Simone Esposito",
+      "email": "simone.esposito1986@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.2",
+    "guzzlehttp/guzzle": "7.10.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^11.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Esposimo\\AzureAuth\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Esposimo\\AzureAuth\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  }
+}
+

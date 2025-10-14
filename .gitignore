@@ -1,0 +1,22 @@
+# Log file
+*.log
+
+# IDE
+.idea/
+*.iml
+.settings/
+.project
+.classpath
+.vscode/
+
+# macOS
+.DS_Store
+# php composer package
+/vendor/
+/vendor/**/.git
+/tests/.phpunit.result.cache
+/tests/.phpunit.cache
+.phpunit.cache/*
+dev/
+composer.lock
+.*env
