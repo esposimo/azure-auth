@@ -34,7 +34,7 @@ Example with Azure Data Explorer URL
 
 ```php
 <?php
-use Esposimo\AzureAuth\OAuth;
+use Esposimo\Azure\Auth\OAuth;
 
 // Assume these values are loaded securely 
 // (e.g., from environment variables or a .env file)

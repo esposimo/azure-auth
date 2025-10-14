@@ -1,6 +1,6 @@
 <?php
 
-namespace Esposimo\AzureAuth;
+namespace Esposimo\Azure\Auth;
 
 use \GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\GuzzleException;
