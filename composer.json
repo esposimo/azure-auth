@@ -1,6 +1,7 @@
 {
   "name": "esposimo/azure-auth",
   "description": "Simple azure auth with client id / client secret",
+  "version": "v1.1.0",
   "type": "library",
   "license": "MIT",
   "authors": [
