@@ -2,11 +2,10 @@
 
 namespace Esposimo\Azure\Auth;
 
-use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use InvalidArgumentException;
 
-class Auth
+class AzureAuthenticationProvider
 {
 
     /**
@@ -50,12 +49,6 @@ class Auth
     private string $authType;
 
     /**
-     * Represents the HTTP client instance used for making HTTP requests.
-     * @var Client
-     */
-    private Client $httpClient;
-
-    /**
      * Initializes the class instance with the provided configuration parameters.
      *
      * @param string $authType The authentication type.
@@ -79,7 +72,6 @@ class Auth
         $this->clientSecret = $clientSecret;
         $this->tenantId = $tenantId;
         $this->scope = $scope;
-        $this->httpClient = new Client();
 
         $this->validateConfig();
     }
@@ -92,7 +84,7 @@ class Auth
      */
     private function validateConfig(): void
     {
-        if ($this->authType === 'service_principal' &&
+        if ($this->authType === self::SERVICE_PRINCIPAL &&
             (!$this->clientId || !$this->clientSecret || !$this->tenantId || !$this->scope)) {
             throw new InvalidArgumentException('Service Principal authentication requires clientId, clientSecret, tenantId and scope');
         }
@@ -102,7 +94,7 @@ class Auth
      * Retrieves the access token based on the authentication type.
      *
      * @return string The access token.
-     * @throws InvalidArgumentException|\Exception If an invalid authentication type is provided or auth configuration are invalid.
+     * @throws InvalidArgumentException|\Exception|GuzzleException If an invalid authentication type is provided or auth configuration are invalid.
      */
     public function getAccessToken(): string
     {
